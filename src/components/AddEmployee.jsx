@@ -93,8 +93,8 @@ export default function AddEmployee() {
                         required
                     >
                         <option value="">Select job title</option>
-                        <option>Software Engineer</option>
-                        <option>Project Manager</option>
+                        <option value={"Software Engineer"}>Software Engineer</option>
+                        <option value={"Project Manager"}>Project Manager</option>
                     </select>
                 </label>
                 <label htmlFor="department" className="block mt-3">
@@ -111,8 +111,7 @@ export default function AddEmployee() {
                         required
                     >
                         <option value="">Select department</option>
-                        <option value="IT">IT</option>
-                        <option value="HR">HR</option>
+                        <option value={"IT"}>IT</option>
                     </select>
                 </label>
                 <label htmlFor="date" className="block mt-3">

@@ -8,11 +8,11 @@ export default function EditEmployee() {
     const { employee, setEmployee, updateEmployee, setUpdateForm, setUpdateFormToggle, setEmpDetailsToggle } = context;
 
     return (
-        <form onSubmit={(e)=> {
+        <form onSubmit={(e) => {
             e.preventDefault();
             updateEmployee();
         }}
-        className="container border-2 border-gray-400/40 rounded-md p-3">
+            className="container border-2 border-gray-400/40 rounded-md p-3">
             <div className="grid place-items-end">
                 <button onClick={() => {
                     setUpdateFormToggle(false);
@@ -83,8 +83,8 @@ export default function EditEmployee() {
                     required
                 >
                     <option value="">Select job title</option>
-                    <option>Software Engineer</option>
-                    <option>Project Manager</option>
+                    <option value={"Software Engineer"}>Software Engineer</option>
+                    <option value={"Project Manager"}>Project Manager</option>
                 </select>
             </label>
 
@@ -100,8 +100,7 @@ export default function EditEmployee() {
                     required
                 >
                     <option value="">Select department</option>
-                    <option value="IT">IT</option>
-                    <option value="HR">HR</option>
+                    <option value={"IT"}>IT</option>
                 </select>
             </label>
             <button
