@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AppState } from "../App";
 
-export default function EditEmployee({ firstname, lastname, contact, jobtitle, department }) {
+export default function EditEmployee() {
 
     const context = useContext(AppState);
 
@@ -33,7 +33,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
                         ...employee,
                         firstname: e.target.value
                     })}
-                    value={firstname}
+                    value={employee.firstname}
                     type="text"
                     className="text-xs md:text-base w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
                     placeholder="ex. John"
@@ -48,7 +48,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
                         ...employee,
                         lastname: e.target.value
                     })}
-                    value={lastname}
+                    value={employee.lastname}
                     type="text"
                     className="text-xs md:text-base w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
                     placeholder="ex. Doe"
@@ -63,7 +63,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
                         ...employee,
                         contact: e.target.value
                     })}
-                    value={contact}
+                    value={employee.contact}
                     type="tel"
                     className="text-xs md:text-base w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
                     pattern="[0-9]{2}-[0-9]{9}"
@@ -78,7 +78,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
                         ...employee,
                         jobtitle: e.target.value
                     })}
-                    value={jobtitle}
+                    value={employee.jobtitle}
                     className="text-xs md:text-base w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
                     required
                 >
@@ -95,7 +95,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
                         ...employee,
                         department: e.target.value
                     })}
-                    value={department}
+                    value={employee.department}
                     className="text-xs md:text-base w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
                     required
                 >

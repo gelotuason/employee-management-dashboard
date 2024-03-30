@@ -1,17 +1,17 @@
 import { useContext } from "react";
 import { AppState } from '../App'
 
-export default function EmployeeCard({ employeeID, firstname, lastname, contact, jobtitle, department, date }) {
+export default function EmployeeCard() {
 
     const context = useContext(AppState);
     
-    const { deleteEmployee, updateForm, setUpdateForm, updateFormToggle, setUpdateFormToggle, setEmpDetailsToggle } = context;
+    const { employee, deleteEmployee, updateForm, setUpdateForm, updateFormToggle, setUpdateFormToggle, setEmpDetailsToggle } = context;
 
     return (
         <div className="mt-3 p-2 rounded-lg">
             <div className="grid grid-rows-2 gap-2 justify-center">
                 <div className="rows-span-1">
-                    <img src="https://cdn2.iconfinder.com/data/icons/ui-camera-set-from-iconspace-2/21/iconspace_Portrait_Mode_25px-512.png" alt="Employee Picture" className="mx-auto my-auto w-auto h-36 rounded-full" />
+                    <img src="https://cdn2.iconfinder.com/data/icons/ui-camera-set-from-iconspace-2/21/iconspace_Portrait_Mode_25px-512.png" alt="Employee Picture" className="mx-auto my-auto w-auto h-28 md:h-44 rounded-full" />
                     <div className="flex gap-1 mt-5 justify-center">
                         {
                             updateForm ?
@@ -41,7 +41,7 @@ export default function EmployeeCard({ employeeID, firstname, lastname, contact,
 
                         <button
                             onClick={() => {
-                                deleteEmployee(employeeID, firstname, lastname);
+                                deleteEmployee(employee.employeeID, employee.firstname, employee.lastname);
                                 setEmpDetailsToggle(false);
                             }}
                             className="bg-red-800 text-white rounded px-4 py-1 font-medium hover:bg-red-400 active:bg-red-600">
@@ -65,12 +65,12 @@ export default function EmployeeCard({ employeeID, firstname, lastname, contact,
 
                         <div className="cols-span-1 grid place-items-center">
                             <div className="grid grid-rows-5">
-                                <span className="font-medium">{firstname}</span>
-                                <span className="font-medium">{lastname}</span>
-                                <span className="font-medium">{contact}</span>
-                                <span className="font-medium">{jobtitle}</span>
-                                <span className="font-medium">{department}</span>
-                                <span className="font-medium">{date}</span>
+                                <span className="font-medium">{employee.firstname}</span>
+                                <span className="font-medium">{employee.lastname}</span>
+                                <span className="font-medium">{employee.contact}</span>
+                                <span className="font-medium">{employee.jobtitle}</span>
+                                <span className="font-medium">{employee.department}</span>
+                                <span className="font-medium">{employee.date}</span>
                             </div>
                         </div>
                     </div>
