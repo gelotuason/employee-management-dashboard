@@ -145,9 +145,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Layout />} >
             <Route index element={<EmployeeList />} />
-            <Route path='employeeCard' element={<EmployeeCard />} />
             <Route path='addEmployee' element={<AddEmployee />} />
-            <Route path='editEmployee' element={<EditEmployee />} />
           </Route>
         </Routes>
       </BrowserRouter>
