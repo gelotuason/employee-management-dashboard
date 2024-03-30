@@ -5,7 +5,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
 
     const context = useContext(AppState);
 
-    const { employee, setEmployee, updateEmployee, setUpdateForm, setUpdateFormToggle } = context;
+    const { employee, setEmployee, updateEmployee, setUpdateForm, setUpdateFormToggle, setEmpDetailsToggle } = context;
 
     return (
         <form onSubmit={(e)=> {
@@ -17,6 +17,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
                 <button onClick={() => {
                     setUpdateFormToggle(false);
                     setUpdateForm(false);
+                    setEmpDetailsToggle(false);
                 }}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -36,6 +37,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
                     type="text"
                     className="text-xs md:text-base w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
                     placeholder="ex. John"
+                    maxLength={18}
                     required
                 />
             </label>
@@ -50,6 +52,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
                     type="text"
                     className="text-xs md:text-base w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
                     placeholder="ex. Doe"
+                    maxLength={18}
                     required
                 />
             </label>

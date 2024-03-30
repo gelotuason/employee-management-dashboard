@@ -24,7 +24,7 @@ export default function EmployeeList() {
                         (
                             <>
                                 {/* Employee List Table (Employee Details Toggled ON) */}
-                                <div className="rounded-md max-h-60 overflow-auto shadow mt-8">
+                                <div className="rounded-md max-h-60 overflow-auto shadow mt-3">
                                     <table className="w-full">
                                         <thead className=" bg-slate-200 border-b-2 border-slate-300">
                                             <tr>
@@ -52,7 +52,7 @@ export default function EmployeeList() {
                                     </table>
                                 </div>
 
-                                {/* Employee List Table (Employee Details Toggled ON) */}
+                                {/* End of Employee List Table (Employee Details Toggled ON) */}
 
                                 {/* Employee Details */}
                                 <h1 className="text-xl font-semibold mt-3">Employee Details</h1>
@@ -101,7 +101,7 @@ export default function EmployeeList() {
                         (
                             <>
                                 {/* Employee List Table (Employee Details Toggled Off) */}
-                                <div className="rounded-md h-full overflow-auto shadow mt-8">
+                                <div className="rounded-md shadow h-[450px] overflow-auto mt-3">
                                     <table className="w-full">
                                         <thead className=" bg-slate-200 border-b-2 border-slate-300">
                                             <tr>
@@ -143,14 +143,14 @@ export default function EmployeeList() {
                                 <div className="rounded-md w-full max-h-60 mt-1 overflow-auto">
                                     {
                                         employeeList.map((employeeRecord) => (
-                                            <div className="flex flex-row border rounded-lg p-3 overflow-auto mt-1">
+                                            <div className="flex flex-row border rounded-lg p-3 overflow-auto mt-2">
                                                 <div className="flex flex-col w-48">
                                                     <p>First Name: <span className="font-medium">{employeeRecord.firstname}</span></p>
                                                     <p>Last Name: <span className="font-medium">{employeeRecord.lastname}</span></p>
                                                     <p>Hired Date: <span className="font-medium">{employeeRecord.date}</span></p>
                                                 </div>
 
-                                                <div className="my-auto mx-auto shrink-0">
+                                                <div className="flex flex-row shrink-0 my-auto mx-auto">
                                                     <button
                                                         onClick={() => {
                                                             setEmpDetailsToggle(true);
@@ -235,52 +235,50 @@ export default function EmployeeList() {
                         (
                             <>
                                 {/* Employee List Table (Employee Details Toggled Off) */}
-                                <div className="rounded-md w-full h-screen overflow-auto mt-1 text-xs">
-                                    <div className="rounded-md overflow-auto">
-                                        {
-                                            employeeList.map((employeeRecord) => (
-                                                <div className="flex flex-row border-2 rounded-lg p-3 overflow-auto mt-1">
-                                                    <div className="flex flex-col w-48">
-                                                        <p>First Name: <span className="font-medium">{employeeRecord.firstname}</span></p>
-                                                        <p>Last Name: <span className="font-medium">{employeeRecord.lastname}</span></p>
-                                                        <p>Hired Date: <span className="font-medium">{employeeRecord.date}</span></p>
-                                                    </div>
-
-                                                    <div className="my-auto mx-auto">
-                                                        <button
-                                                            onClick={() => {
-                                                                setEmpDetailsToggle(true);
-                                                                setUpdateFormToggle(false);
-                                                                setUpdateForm(false);
-                                                                setEmployee({
-                                                                    employeeID: employeeRecord.employeeID,
-                                                                    firstname: employeeRecord.firstname,
-                                                                    lastname: employeeRecord.lastname,
-                                                                    contact: employeeRecord.contact,
-                                                                    jobtitle: employeeRecord.jobtitle,
-                                                                    department: employeeRecord.department,
-                                                                    date: employeeRecord.date
-                                                                });
-                                                            }}
-                                                            className="mx-2">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                                                                <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clipRule="evenodd" />
-                                                            </svg>
-                                                        </button>
-                                                        <button onClick={() => {
-                                                            deleteEmployee(employeeRecord.employeeID, employeeRecord.firstname, employeeRecord.lastname);
-                                                            setEmpDetailsToggle(false);
-                                                        }}
-                                                            className="text-red-900">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                                                                <path d="M10.375 2.25a4.125 4.125 0 1 0 0 8.25 4.125 4.125 0 0 0 0-8.25ZM10.375 12a7.125 7.125 0 0 0-7.124 7.247.75.75 0 0 0 .363.63 13.067 13.067 0 0 0 6.761 1.873c2.472 0 4.786-.684 6.76-1.873a.75.75 0 0 0 .364-.63l.001-.12v-.002A7.125 7.125 0 0 0 10.375 12ZM16 9.75a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5h-6Z" />
-                                                            </svg>
-                                                        </button>
-                                                    </div>
+                                <div className="rounded-md w-full h-[750px] overflow-auto mt-1 text-xs">
+                                    {
+                                        employeeList.map((employeeRecord) => (
+                                            <div className="flex flex-row border-2 rounded-lg p-3 overflow-auto mt-2">
+                                                <div className="flex flex-col w-48">
+                                                    <p>First Name: <span className="font-medium">{employeeRecord.firstname}</span></p>
+                                                    <p>Last Name: <span className="font-medium">{employeeRecord.lastname}</span></p>
+                                                    <p>Hired Date: <span className="font-medium">{employeeRecord.date}</span></p>
                                                 </div>
-                                            ))
-                                        }
-                                    </div>
+
+                                                <div className="flex flex-row shrink-0 my-auto mx-auto">
+                                                    <button
+                                                        onClick={() => {
+                                                            setEmpDetailsToggle(true);
+                                                            setUpdateFormToggle(false);
+                                                            setUpdateForm(false);
+                                                            setEmployee({
+                                                                employeeID: employeeRecord.employeeID,
+                                                                firstname: employeeRecord.firstname,
+                                                                lastname: employeeRecord.lastname,
+                                                                contact: employeeRecord.contact,
+                                                                jobtitle: employeeRecord.jobtitle,
+                                                                department: employeeRecord.department,
+                                                                date: employeeRecord.date
+                                                            });
+                                                        }}
+                                                        className="mx-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                                            <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clipRule="evenodd" />
+                                                        </svg>
+                                                    </button>
+                                                    <button onClick={() => {
+                                                        deleteEmployee(employeeRecord.employeeID, employeeRecord.firstname, employeeRecord.lastname);
+                                                        setEmpDetailsToggle(false);
+                                                    }}
+                                                        className="text-red-900">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                                            <path d="M10.375 2.25a4.125 4.125 0 1 0 0 8.25 4.125 4.125 0 0 0 0-8.25ZM10.375 12a7.125 7.125 0 0 0-7.124 7.247.75.75 0 0 0 .363.63 13.067 13.067 0 0 0 6.761 1.873c2.472 0 4.786-.684 6.76-1.873a.75.75 0 0 0 .364-.63l.001-.12v-.002A7.125 7.125 0 0 0 10.375 12ZM16 9.75a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5h-6Z" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
                                 {/* End of Employee List Table (Employee Details Toggled Off) */}
                             </>

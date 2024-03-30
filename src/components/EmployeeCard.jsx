@@ -51,7 +51,7 @@ export default function EmployeeCard({ employeeID, firstname, lastname, contact,
                 </div>
 
                 <div className="rows-span-1">
-                    <div className="grid grid-cols-2 my-2 text-gray-500">
+                    <div className="grid grid-cols-2 my-2 text-gray-500 w-72">
                         <div className="cols-span-1">
                             <div className="grid grid-rows-5">
                                 <span>First Name: </span>
@@ -63,7 +63,7 @@ export default function EmployeeCard({ employeeID, firstname, lastname, contact,
                             </div>
                         </div>
 
-                        <div className="cols-span-1">
+                        <div className="cols-span-1 grid place-items-center">
                             <div className="grid grid-rows-5">
                                 <span className="font-medium">{firstname}</span>
                                 <span className="font-medium">{lastname}</span>

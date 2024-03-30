@@ -2,9 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useEffect, useState, createContext } from 'react';
 import Layout from './components/Layout'
 import EmployeeList from './components/EmployeeList'
-import EmployeeCard from './components/EmployeeCard'
 import AddEmployee from './components/AddEmployee'
-import EditEmployee from './components/EditEmployee'
 import firebaseApp from './components/FirebaseConfig';
 import { getFirestore, collection, onSnapshot, doc, addDoc, deleteDoc, updateDoc } from "firebase/firestore";
 import Swal from 'sweetalert2'

@@ -41,6 +41,7 @@ export default function AddEmployee() {
                         type="text"
                         className="w-full rounded-md shadow-sm block border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                         placeholder="ex. John"
+                        maxLength={18}
                         required
                     />
                 </label>
@@ -57,6 +58,7 @@ export default function AddEmployee() {
                         type="text"
                         className="w-full rounded-md shadow-sm block border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                         placeholder="ex. Doe"
+                        maxLength={18}
                         required
                     />
                 </label>
