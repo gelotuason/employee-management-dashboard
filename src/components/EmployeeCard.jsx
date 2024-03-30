@@ -9,9 +9,9 @@ export default function EmployeeCard({ employeeID, firstname, lastname, contact,
 
     return (
         <div className="mt-3 p-2 rounded-lg">
-            <div className="grid grid-rows-2 gap-5 justify-center">
+            <div className="grid grid-rows-2 gap-2 justify-center">
                 <div className="rows-span-1">
-                    <img src="https://cdn2.iconfinder.com/data/icons/ui-camera-set-from-iconspace-2/21/iconspace_Portrait_Mode_25px-512.png" alt="Employee Picture" className="mx-auto my-auto w-auto h-40 rounded-full" />
+                    <img src="https://cdn2.iconfinder.com/data/icons/ui-camera-set-from-iconspace-2/21/iconspace_Portrait_Mode_25px-512.png" alt="Employee Picture" className="mx-auto my-auto w-auto h-36 rounded-full" />
                     <div className="flex gap-1 mt-5 justify-center">
                         {
                             updateForm ?
@@ -51,7 +51,7 @@ export default function EmployeeCard({ employeeID, firstname, lastname, contact,
                 </div>
 
                 <div className="rows-span-1">
-                    <div className="grid grid-cols-2 text-gray-500">
+                    <div className="grid grid-cols-2 my-2 text-gray-500">
                         <div className="cols-span-1">
                             <div className="grid grid-rows-5">
                                 <span>First Name: </span>

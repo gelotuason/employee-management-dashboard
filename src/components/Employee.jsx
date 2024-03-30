@@ -8,7 +8,7 @@ export default function Employee({ employeeID, firstname, lastname, contact, job
     const { setEmployee, setEmpDetailsToggle, setUpdateFormToggle, setUpdateForm, deleteEmployee } = context;
 
     return (
-        <tr>
+        <tr className="font-medium text-gray-700">
             <td className="p-3 text-sm whitespace-nowrap">{firstname}</td>
             <td className="p-3 text-sm whitespace-nowrap">{lastname}</td>
             <td className="p-3 text-sm whitespace-nowrap">{date}</td>

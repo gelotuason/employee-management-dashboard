@@ -34,7 +34,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
                     })}
                     value={firstname}
                     type="text"
-                    className="w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
+                    className="text-xs md:text-base w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
                     placeholder="ex. John"
                     required
                 />
@@ -48,7 +48,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
                     })}
                     value={lastname}
                     type="text"
-                    className="w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
+                    className="text-xs md:text-base w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
                     placeholder="ex. Doe"
                     required
                 />
@@ -62,7 +62,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
                     })}
                     value={contact}
                     type="tel"
-                    className="w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
+                    className="text-xs md:text-base w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
                     pattern="[0-9]{2}-[0-9]{9}"
                     placeholder="ex. 09-123456789"
                     required
@@ -76,7 +76,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
                         jobtitle: e.target.value
                     })}
                     value={jobtitle}
-                    className="w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
+                    className="text-xs md:text-base w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
                     required
                 >
                     <option value="">Select job title</option>
@@ -93,7 +93,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
                         department: e.target.value
                     })}
                     value={department}
-                    className="w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
+                    className="text-xs md:text-base w-full block border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-black"
                     required
                 >
                     <option value="">Select department</option>
@@ -103,7 +103,7 @@ export default function EditEmployee({ firstname, lastname, contact, jobtitle, d
             </label>
             <button
                 type="submit"
-                className="bg-gray-900 rounded-md text-white py-2 px-8 font-medium hover:bg-gray-500 active:bg-gray-700 mt-3">
+                className="text-xs md:text-base bg-gray-900 rounded-md text-white py-2 px-8 font-medium hover:bg-gray-500 active:bg-gray-700 mt-3">
                 Submit
             </button>
         </form>

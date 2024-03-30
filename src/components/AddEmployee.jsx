@@ -27,7 +27,7 @@ export default function AddEmployee() {
                 e.preventDefault();
                 addEmployee();
             }}
-                className="mt-5">
+                className="mt-5 min-w-[280px]">
                 <label htmlFor="firstname" className="block">
                     <span className="text-gray-700 font-semibold">First Name</span>
                     <input id="firstname"
@@ -39,7 +39,7 @@ export default function AddEmployee() {
                         }}
                         value={employee.firstname}
                         type="text"
-                        className="min-w-[260px] w-full rounded-md shadow-sm block border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                        className="w-full rounded-md shadow-sm block border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                         placeholder="ex. John"
                         required
                     />
@@ -55,7 +55,7 @@ export default function AddEmployee() {
                         }}
                         value={employee.lastname}
                         type="text"
-                        className="min-w-[260px] w-full rounded-md shadow-sm block border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                        className="w-full rounded-md shadow-sm block border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                         placeholder="ex. Doe"
                         required
                     />
@@ -71,7 +71,7 @@ export default function AddEmployee() {
                         }}
                         value={employee.contact}
                         type="tel"
-                        className="min-w-[260px] w-full rounded-md shadow-sm block border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                        className="w-full rounded-md shadow-sm block border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                         pattern="[0-9]{2}-[0-9]{9}"
                         placeholder="ex. 09-123456789"
                         required
@@ -87,7 +87,7 @@ export default function AddEmployee() {
                             })
                         }}
                         value={employee.jobtitle}
-                        className="min-w-[260px] w-full rounded-md shadow-sm block border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                        className="w-full rounded-md shadow-sm block border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                         required
                     >
                         <option value="">Select job title</option>
@@ -105,7 +105,7 @@ export default function AddEmployee() {
                             })
                         }}
                         value={employee.department}
-                        className="min-w-[260px] w-full rounded-md shadow-sm block border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                        className="w-full rounded-md shadow-sm block border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                         required
                     >
                         <option value="">Select department</option>
@@ -124,11 +124,11 @@ export default function AddEmployee() {
                         }}
                         value={employee.date}
                         type="date"
-                        className="min-w-[260px] rounded-md shadow-sm block border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                        className="rounded-md shadow-sm block border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                         required
                     />
                 </label>
-                <div className="min-w-[260px] w-full flex md:flex-row flex-col mt-7 gap-1">
+                <div className="w-full flex md:flex-row flex-col mt-7 gap-1">
                     <button
                         type="submit"
                         className="bg-gray-900 rounded-md text-white py-2 px-8 font-medium hover:bg-gray-500 active:bg-gray-700">
@@ -144,7 +144,9 @@ export default function AddEmployee() {
                                 department: ''
                             })
                         }}
-                        className="bg-red-800 rounded-md text-white py-2 px-8 font-medium hover:bg-red-400 active:bg-red-600">Reset
+                        type="reset"
+                        className="bg-red-800 rounded-md text-white py-2 px-8 font-medium hover:bg-red-400 active:bg-red-600">
+                        Reset
                     </button>
                 </div>
             </form>
