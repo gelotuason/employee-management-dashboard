@@ -18,38 +18,40 @@ export default function EmployeeList() {
             <h1 className="text-3xl font-bold">List of Employee</h1>
             <p className="font-light">Current employed employees</p>
 
-            <div className="rounded-md max-h-60 overflow-auto shadow mt-8">
-                <table className="w-full">
-                    <thead className=" bg-slate-200 border-b-2 border-slate-300">
-                        <tr>
-                            <th className="p-3 text-md font-semibold text-left">First Name</th>
-                            <th className="p-3 text-md font-semibold text-left">Last Name</th>
-                            <th className="p-3 text-md font-semibold text-left">Hired Date</th>
-                            <th className="p-3 text-md font-semibold text-left"></th>
-                        </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-200">
-                        {
-                            employeeList.map((employeeRecord) => (
-                                <Employee
-                                    employeeID={employeeRecord.employeeID}
-                                    firstname={employeeRecord.firstname}
-                                    lastname={employeeRecord.lastname}
-                                    contact={employeeRecord.contact}
-                                    jobtitle={employeeRecord.jobtitle}
-                                    department={employeeRecord.department}
-                                    date={employeeRecord.date}
-                                />
-                            ))
-                        }
-                    </tbody>
-                </table>
-            </div>
-
             {
                 empDetailsToggle ?
                     (
                         <>
+                            {/* Employee List Table (Employee Details Toggled ON) */}
+                            <div className="rounded-md h-60 overflow-auto shadow mt-8">
+                                <table className="w-full">
+                                    <thead className=" bg-slate-200 border-b-2 border-slate-300">
+                                        <tr>
+                                            <th className="p-3 text-md font-semibold text-left">First Name</th>
+                                            <th className="p-3 text-md font-semibold text-left">Last Name</th>
+                                            <th className="p-3 text-md font-semibold text-left">Hired Date</th>
+                                            <th className="p-3 text-md font-semibold text-left"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-gray-200">
+                                        {
+                                            employeeList.map((employeeRecord) => (
+                                                <Employee
+                                                    employeeID={employeeRecord.employeeID}
+                                                    firstname={employeeRecord.firstname}
+                                                    lastname={employeeRecord.lastname}
+                                                    contact={employeeRecord.contact}
+                                                    jobtitle={employeeRecord.jobtitle}
+                                                    department={employeeRecord.department}
+                                                    date={employeeRecord.date}
+                                                />
+                                            ))
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            {/* Employee List Table (Employee Details Toggled ON) */}
+
                             {/* Employee Details */}
                             <h1 className="text-xl font-semibold mt-3">Employee Details</h1>
                             <section className="grid grid-cols-1 md:grid-cols-2">
@@ -97,9 +99,39 @@ export default function EmployeeList() {
                     ) :
 
                     (
-                        <div>
+                        <>
+                            {/* Employee List Table (Employee Details Toggled Off) */}
+                            <div className="rounded-md h-full overflow-auto shadow mt-8">
+                                <table className="w-full">
+                                    <thead className=" bg-slate-200 border-b-2 border-slate-300">
+                                        <tr>
+                                            <th className="p-3 text-md font-semibold text-left">First Name</th>
+                                            <th className="p-3 text-md font-semibold text-left">Last Name</th>
+                                            <th className="p-3 text-md font-semibold text-left">Hired Date</th>
+                                            <th className="p-3 text-md font-semibold text-left"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-gray-200">
+                                        {
+                                            employeeList.map((employeeRecord) => (
+                                                <Employee
+                                                    employeeID={employeeRecord.employeeID}
+                                                    firstname={employeeRecord.firstname}
+                                                    lastname={employeeRecord.lastname}
+                                                    contact={employeeRecord.contact}
+                                                    jobtitle={employeeRecord.jobtitle}
+                                                    department={employeeRecord.department}
+                                                    date={employeeRecord.date}
+                                                />
+                                            ))
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            {/* End of Employee List Table (Employee Details Toggled Off) */}
+                        </>
 
-                        </div>
+
                     )
             }
         </main>
