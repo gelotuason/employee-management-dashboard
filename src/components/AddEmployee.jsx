@@ -30,7 +30,7 @@ export default function AddEmployee() {
                     e.preventDefault();
                     addEmployee();
                 }}
-                    className="mt-5 min-w-[280px]">
+                    className="mt-5">
                     <label htmlFor="firstname" className="block">
                         <span className="text-gray-700 font-semibold">First Name</span>
                         <input id="firstname"
