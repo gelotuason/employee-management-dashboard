@@ -19,7 +19,7 @@ export default function AddEmployee() {
     }, []);
 
     return (
-        <main className="grid grid-cols-1 md:grid-cols-4">
+        <main className="grid grid-cols-1 md:grid-cols-4 mt-5">
             <div className="md:col-start-2 md:col-end-4">
                 <div className="grid place-items-center">
                     <h1 className="text-3xl font-bold">Employee Profile</h1>
