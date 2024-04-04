@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { AppState } from '../App'
+import { AppState } from '../App';
 
 export default function AddEmployee() {
 
@@ -157,6 +157,5 @@ export default function AddEmployee() {
             </div>
 
         </main>
-
     )
 }
