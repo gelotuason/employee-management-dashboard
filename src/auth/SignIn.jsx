@@ -20,8 +20,6 @@ export default function SignIn() {
             // Signed in 
             const user = userCredential.user;
     
-            setAuthenticated(true);
-    
             setEmail('');
             setPassword('');
 

@@ -15,27 +15,27 @@ export default function SignUp() {
     const handleSignUp = () => {
         const auth = getAuth(firebaseApp);
         createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            // Signed up 
-            const user = userCredential.user;
-    
-            setFirstname('');
-            setLastname('');
-            setEmail('');
-            setPassword('');
-            setConfirmPassword('');
-            
-            navigate('/signIn');
+            .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
 
-            alert('Registered successfully!');
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-    
-            alert('Registration failed!');
-          });
-      }
+                setFirstname('');
+                setLastname('');
+                setEmail('');
+                setPassword('');
+                setConfirmPassword('');
+
+                navigate('/signIn');
+
+                alert('Registered successfully!');
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+                alert('Registration failed!');
+            });
+    }
 
     return (
 
@@ -72,7 +72,7 @@ export default function SignUp() {
                             <form onSubmit={(e) => {
                                 e.preventDefault();
                                 handleSignUp();
-                            }} 
+                            }}
                                 className="p-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
                                     <div className="cols-span-1">
@@ -102,6 +102,35 @@ export default function SignUp() {
                                         />
                                     </div>
                                 </div>
+                                
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
+                                    <div className="cols-span-1">
+                                        <label htmlFor="password" className="text-white text-sm font-medium">*Password</label>
+                                        <input
+                                            id="password"
+                                            type="password"
+                                            className="rounded-md w-full focus:ring-0 focus:border-black mt-1 mb-2"
+                                            onChange={(e) => {
+                                                setPassword(e.target.value);
+                                            }}
+                                            value={password}
+                                            required
+                                        />
+                                    </div>
+                                    <div className="cols-span-1">
+                                        <label htmlFor="confirmPassword" className="text-white text-sm font-medium">*Confirm Password</label>
+                                        <input
+                                            id="confirmPassword"
+                                            type="password"
+                                            className="rounded-md w-full focus:ring-0 focus:border-black mt-1 mb-2"
+                                            onChange={(e) => {
+                                                setConfirmPassword(e.target.value);
+                                            }}
+                                            value={confirmPassword}
+                                            required
+                                        />
+                                    </div>
+                                </div>
                                 <label htmlFor="email" className="text-white text-sm font-medium">*Email</label>
                                 <input
                                     id="email"
@@ -111,28 +140,6 @@ export default function SignUp() {
                                         setEmail(e.target.value);
                                     }}
                                     value={email}
-                                    required
-                                />
-                                <label htmlFor="password" className="text-white text-sm font-medium">*Password</label>
-                                <input
-                                    id="password"
-                                    type="password"
-                                    className="rounded-md w-full focus:ring-0 focus:border-black mt-1 mb-2"
-                                    onChange={(e) => {
-                                        setPassword(e.target.value);
-                                    }}
-                                    value={password}
-                                    required
-                                />
-                                <label htmlFor="confirmPassword" className="text-white text-sm font-medium">*Confirm Password</label>
-                                <input
-                                    id="confirmPassword"
-                                    type="password"
-                                    className="rounded-md w-full focus:ring-0 focus:border-black mt-1 mb-2"
-                                    onChange={(e) => {
-                                        setConfirmPassword(e.target.value);
-                                    }}
-                                    value={confirmPassword}
                                     required
                                 />
                                 <label className="inline-flex items-center mb-5">
