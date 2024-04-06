@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
 import { useEffect, useState, createContext } from 'react';
 import Layout from './components/Layout'
 import EmployeeList from './components/EmployeeList'
@@ -9,7 +9,7 @@ import NotSignedIn from './components/NotSignedIn';
 import Swal from 'sweetalert2';
 import firebaseApp from './components/FirebaseConfig';
 import { getFirestore, collection, onSnapshot, doc, addDoc, deleteDoc, updateDoc } from "firebase/firestore";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+
 
 export const AppState = createContext();
 
@@ -29,6 +29,7 @@ function App() {
   const [updateFormToggle, setUpdateFormToggle] = useState(false);
   const [updateForm, setUpdateForm] = useState(false);
 
+  // auth
   const [authenticated, setAuthenticated] = useState(false);
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
@@ -131,43 +132,6 @@ function App() {
     }
   }
 
-  const handleSignIn = () => {
-    const auth = getAuth(firebaseApp);
-
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-
-        setAuthenticated(true);
-        alert('Signed in!');
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-
-        setAuthenticated(false);
-        alert('Sign in failed!');
-      });
-  }
-
-  const handleSignUp = () => {
-    const auth = getAuth(firebaseApp);
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed up 
-        const user = userCredential.user;
-
-        alert('Registered successfully!');
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-
-        alert('Registration failed!');
-      });
-  }
-
 
   return (
     <AppState.Provider value={{
@@ -195,9 +159,7 @@ function App() {
       confirmPassword,
       setConfirmPassword,
       authenticated,
-      setAuthenticated,
-      handleSignIn,
-      handleSignUp
+      setAuthenticated
     }}>
       <BrowserRouter>
         <Routes>

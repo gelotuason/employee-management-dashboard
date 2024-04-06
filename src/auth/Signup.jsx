@@ -1,12 +1,41 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AppState } from '../App';
+import firebaseApp from '../components/FirebaseConfig';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function SignUp() {
 
+    let navigate = useNavigate();
+
     const context = useContext(AppState);
 
-    const { firstname, setFirstname, lastname, setLastname, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, handleSignUp } = context;
+    const { firstname, setFirstname, lastname, setLastname, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword } = context;
+
+    const handleSignUp = () => {
+        const auth = getAuth(firebaseApp);
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed up 
+            const user = userCredential.user;
+    
+            setFirstname('');
+            setLastname('');
+            setEmail('');
+            setPassword('');
+            setConfirmPassword('');
+            
+            navigate('/signIn');
+
+            alert('Registered successfully!');
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+    
+            alert('Registration failed!');
+          });
+      }
 
     return (
 
@@ -56,6 +85,7 @@ export default function SignUp() {
                                                 setFirstname(e.target.value);
                                             }}
                                             value={firstname}
+                                            required
                                         />
                                     </div>
                                     <div className="cols-span-1">
@@ -68,6 +98,7 @@ export default function SignUp() {
                                                 setLastname(e.target.value);
                                             }}
                                             value={lastname}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -80,6 +111,7 @@ export default function SignUp() {
                                         setEmail(e.target.value);
                                     }}
                                     value={email}
+                                    required
                                 />
                                 <label htmlFor="password" className="text-white text-sm font-medium">*Password</label>
                                 <input
@@ -90,6 +122,7 @@ export default function SignUp() {
                                         setPassword(e.target.value);
                                     }}
                                     value={password}
+                                    required
                                 />
                                 <label htmlFor="confirmPassword" className="text-white text-sm font-medium">*Confirm Password</label>
                                 <input
@@ -100,6 +133,7 @@ export default function SignUp() {
                                         setConfirmPassword(e.target.value);
                                     }}
                                     value={confirmPassword}
+                                    required
                                 />
                                 <label className="inline-flex items-center mb-5">
                                     <input

@@ -1,12 +1,30 @@
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet, Link, useNavigate } from 'react-router-dom'
 import { useContext } from 'react';
 import { AppState } from '../App';
+import firebaseApp from '../components/FirebaseConfig';
+import { getAuth, signOut } from "firebase/auth";
 
 export default function Layout() {
 
+    let navigate = useNavigate();
+
     const context = useContext(AppState);
 
-    const { authenticated } = context;
+    const { authenticated, setAuthenticated } = context;
+
+    const handleSignOut = () => {
+        const auth = getAuth(firebaseApp);
+        signOut(auth).then(() => {
+            // Sign-out successful.
+
+            setAuthenticated(false);
+
+            navigate('/');
+
+        }).catch((error) => {
+            // An error happened.
+        });
+    }
 
     return (
         <main className='flex'>
@@ -33,7 +51,13 @@ export default function Layout() {
                                     <span className=''>Add Employee</span>
                                 </Link>
                                 <hr className='mt-2 mb-2' />
-                                <Link className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" >
+                                <Link onClick={() => {
+                                    setTimeout(() => {
+                                        handleSignOut();
+                                      }, 1000);
+                                }}
+                                    className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium"
+                                >
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                                         <path fillRule="evenodd" d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
                                     </svg>
