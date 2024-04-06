@@ -80,11 +80,12 @@ export default function SignUp() {
                                         <input
                                             id="firstname"
                                             type="text"
-                                            className="rounded-md w-full focus:ring-0 focus:border-black mt-1 mb-2"
+                                            className="rounded-md w-full focus:ring-0 text-white border-white mt-1 mb-2 bg-transparent text-sm"
                                             onChange={(e) => {
                                                 setFirstname(e.target.value);
                                             }}
                                             value={firstname}
+                                            placeholder=''
                                             required
                                         />
                                     </div>
@@ -93,7 +94,7 @@ export default function SignUp() {
                                         <input
                                             id="lastname"
                                             type="text"
-                                            className="rounded-md w-full focus:ring-0 focus:border-black mt-1 mb-2"
+                                            className="rounded-md w-full focus:ring-0 text-white border-white mt-1 mb-2 bg-transparent text-sm"
                                             onChange={(e) => {
                                                 setLastname(e.target.value);
                                             }}
@@ -109,7 +110,7 @@ export default function SignUp() {
                                         <input
                                             id="password"
                                             type="password"
-                                            className="rounded-md w-full focus:ring-0 focus:border-black mt-1 mb-2"
+                                            className="rounded-md w-full focus:ring-0 text-white border-white mt-1 mb-2 bg-transparent text-sm"
                                             onChange={(e) => {
                                                 setPassword(e.target.value);
                                             }}
@@ -122,7 +123,7 @@ export default function SignUp() {
                                         <input
                                             id="confirmPassword"
                                             type="password"
-                                            className="rounded-md w-full focus:ring-0 focus:border-black mt-1 mb-2"
+                                            className="rounded-md w-full focus:ring-0 text-white border-white mt-1 mb-2 bg-transparent text-sm"
                                             onChange={(e) => {
                                                 setConfirmPassword(e.target.value);
                                             }}
@@ -135,7 +136,7 @@ export default function SignUp() {
                                 <input
                                     id="email"
                                     type="email"
-                                    className="rounded-md w-full focus:ring-0 focus:border-black mt-1 mb-2"
+                                    className="rounded-md w-full focus:ring-0 text-white border-white mt-1 mb-2 bg-transparent text-sm"
                                     onChange={(e) => {
                                         setEmail(e.target.value);
                                     }}
@@ -145,7 +146,7 @@ export default function SignUp() {
                                 <label className="inline-flex items-center mb-5">
                                     <input
                                         type="checkbox"
-                                        className="rounded"
+                                        className="rounded hover:border-2 border-white focus:ring-0 bg-transparent"
                                     />
                                     <span className="ml-2 text-white text-xs">I agree to the terms & conditions and privacy policy</span>
                                 </label>

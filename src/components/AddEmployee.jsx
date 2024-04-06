@@ -135,7 +135,7 @@ export default function AddEmployee() {
                     <div className="w-full flex md:flex-row flex-col mt-7 gap-1">
                         <button
                             type="submit"
-                            className="bg-gray-900 rounded-md text-white py-2 px-8 font-medium hover:bg-gray-500 active:bg-gray-700">
+                            className="bg-gray-900 rounded-md text-white py-2 px-8 font-medium hover:bg-gray-600 active:bg-gray-700">
                             Submit
                         </button>
                         <button
@@ -149,7 +149,7 @@ export default function AddEmployee() {
                                 })
                             }}
                             type="reset"
-                            className="bg-red-800 rounded-md text-white py-2 px-8 font-medium hover:bg-red-400 active:bg-red-600">
+                            className="rounded-md text-gray-900 bg-gray-300 py-2 px-8 font-medium hover:bg-gray-400 active:bg-gray-500">
                             Reset
                         </button>
                     </div>

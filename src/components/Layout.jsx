@@ -3,6 +3,9 @@ import { useContext, useEffect } from 'react';
 import { AppState } from '../App';
 import firebaseApp from '../components/FirebaseConfig';
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faInstagram, faLinkedinIn, faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 export default function Layout() {
 
@@ -19,7 +22,7 @@ export default function Layout() {
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/auth.user
                 const uid = user.uid;
-                
+
                 setAuthenticated(true);
 
             } else {
@@ -41,8 +44,8 @@ export default function Layout() {
     }
 
     return (
-        <main className='flex'>
-            <nav className="min-w-16 md:w-16 lg:w-64 transition-all duration-200 bg-gray-900 text-white p-3">
+        <main id='main' className='flex'>
+            <nav className="min-w-16 md:w-16 lg:w-64 transition-all duration-200 bg-gray-900 text-white p-3 h-screen">
                 {
                     authenticated ?
                         <>
@@ -68,7 +71,11 @@ export default function Layout() {
                                     </svg>
                                     <span className=''>Add Employee</span>
                                 </Link>
+                                {/* End of Add Employee */}
+
                                 <hr className='mt-2 mb-2' />
+
+                                {/* Sign Out */}
                                 <Link onClick={() => {
                                     setTimeout(() => {
                                         handleSignOut();
@@ -77,11 +84,12 @@ export default function Layout() {
                                     className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                                        <path fillRule="evenodd" d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+                                        <path fillRule="evenodd" d="M9.53 2.47a.75.75 0 0 1 0 1.06L4.81 8.25H15a6.75 6.75 0 0 1 0 13.5h-3a.75.75 0 0 1 0-1.5h3a5.25 5.25 0 1 0 0-10.5H4.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0Z" clipRule="evenodd" />
                                     </svg>
+
                                     <span className=''>Sign out</span>
                                 </Link>
-                                {/* End of Add Employee */}
+                                {/* End of Sign Out */}
                             </div>
 
                             <div className="lg:hidden">
@@ -107,8 +115,9 @@ export default function Layout() {
                                 {/* Sign Out */}
                                 <Link title='Sign Out' className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" >
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                                        <path fillRule="evenodd" d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+                                        <path fillRule="evenodd" d="M9.53 2.47a.75.75 0 0 1 0 1.06L4.81 8.25H15a6.75 6.75 0 0 1 0 13.5h-3a.75.75 0 0 1 0-1.5h3a5.25 5.25 0 1 0 0-10.5H4.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0Z" clipRule="evenodd" />
                                     </svg>
+
                                 </Link>
                                 {/* End of Sign Out */}
                             </div>
@@ -130,7 +139,7 @@ export default function Layout() {
                                     <span className=''>Sign in</span>
                                 </Link>
                                 {/* End of Sign In */}
-                                
+
                                 {/* Sign Up */}
                                 <Link className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" to='signUp'>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -164,9 +173,46 @@ export default function Layout() {
                 }
             </nav>
 
-            <section className='flex-1 overflow-auto h-screen p-4'>
+            <section className='flex-1 overflow-auto h-[700px] md:h-screen p-4'>
                 <Outlet></Outlet>
             </section>
+
+            <footer className='bg-gray-800 text-white grid place-items-center text-center fixed w-full bottom-0 p-4'>
+                    <small>Copyright © 2024 Employee Management Dashboard. All rights reserved.</small>
+                    <small>Developed by <strong>Ferangelo Tuason</strong></small>
+
+                    <div className="flex gap-3 mt-1">
+                        <a className='hover:text-gray-300' href="https://www.facebook.com/gelo.tuason26/" target="_blank">
+                            <FontAwesomeIcon icon={faFacebookF} />
+                        </a>
+
+                        <a className='hover:text-gray-300' href="https://www.linkedin.com/in/ferangelo-tuason/" target="_blank">
+                            <FontAwesomeIcon icon={faLinkedinIn} />
+                        </a>
+
+                        <a className='hover:text-gray-300' href="https://www.instagram.com/gelotuason/?hl=en" target="_blank">
+                            <FontAwesomeIcon icon={faInstagram} />
+                        </a>
+
+                        <a className='hover:text-gray-300' href="https://www.tiktok.com/@gelotuason" target="_blank">
+                            <FontAwesomeIcon icon={faTiktok} />
+                        </a>
+
+                        <a className='hover:text-gray-300' href="mailto:gelotuason@gmail.com" target="_blank">
+                            <FontAwesomeIcon icon={faEnvelope} />
+                        </a>
+                    </div>
+
+                    <a className='mt-2 md:hidden' href="#main">
+                        <div className='flex font-semibold hover:text-gray-300'>
+                            Back to top
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 my-auto">
+                                <path fillRule="evenodd" d="M11.47 2.47a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1-1.06 1.06l-2.47-2.47V21a.75.75 0 0 1-1.5 0V4.81L8.78 7.28a.75.75 0 0 1-1.06-1.06l3.75-3.75Z" clipRule="evenodd" />
+                            </svg>
+                        </div>
+                    </a>
+                </footer>
+
         </main>
     )
 }

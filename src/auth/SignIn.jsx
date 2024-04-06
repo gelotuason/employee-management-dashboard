@@ -77,7 +77,7 @@ export default function SignIn() {
                                 <input
                                     id="email"
                                     type="email"
-                                    className="rounded-md w-full focus:ring-0 focus:border-black mt-1 mb-2"
+                                    className="rounded-md w-full focus:ring-0 text-white border-white mt-1 mb-2 bg-transparent text-sm"
                                     onChange={(e) => {
                                         setEmail(e.target.value);
                                     }}
@@ -87,7 +87,7 @@ export default function SignIn() {
                                 <input
                                     id="password"
                                     type="password"
-                                    className="rounded-md w-full focus:ring-0 focus:border-black mt-1 mb-5"
+                                    className="rounded-md w-full focus:ring-0 text-white border-white mt-1 mb-5 bg-transparent text-sm"
                                     onChange={(e) => {
                                         setPassword(e.target.value);
                                     }}

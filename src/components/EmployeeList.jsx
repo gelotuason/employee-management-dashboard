@@ -57,9 +57,10 @@ export default function EmployeeList() {
                                     {/* End of Employee List Table (Employee Details Toggled ON) */}
 
                                     {/* Employee Details */}
-                                    <h1 className="text-xl font-semibold mt-3">Employee Details</h1>
+
                                     <section className="grid grid-cols-2">
                                         <div className="cols-span-1">
+                                            <h1 className="text-xl font-semibold mt-3">Employee Details</h1>
                                             <EmployeeCard />
                                         </div>
                                         {/* End of Employee Details */}
@@ -70,6 +71,7 @@ export default function EmployeeList() {
                                             updateFormToggle ?
                                                 (
                                                     <div className="cols-span-1">
+                                                        <h1 className="text-xl font-semibold mt-3">Edit Employee Details</h1>
                                                         <EditEmployee />
                                                     </div>
                                                 ) :
@@ -187,6 +189,7 @@ export default function EmployeeList() {
                                             updateFormToggle ?
                                                 (
                                                     <div className="cols-span-1">
+                                                        <h1 className="text-sm font-semibold">Edit Employee Details</h1>
                                                         <EditEmployee />
                                                     </div>
                                                 ) :

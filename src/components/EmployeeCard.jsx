@@ -33,7 +33,7 @@ export default function EmployeeCard() {
                                             setUpdateFormToggle(!updateFormToggle);
                                             setUpdateForm(true);
                                         }}
-                                        className="bg-gray-900 text-white rounded px-4 py-1 font-medium hover:bg-gray-500 active:bg-gray-700">
+                                        className="bg-gray-900 text-white rounded px-4 py-1 font-medium hover:bg-gray-600 active:bg-gray-700">
                                         Edit
                                     </button>
                                 )
