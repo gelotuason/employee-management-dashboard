@@ -89,7 +89,7 @@ export default function SignUp() {
                                                 setFirstname(e.target.value);
                                             }}
                                             value={firstname}
-                                            placeholder=''
+                                            placeholder='ex. John'
                                             required
                                         />
                                     </div>
@@ -103,6 +103,7 @@ export default function SignUp() {
                                                 setLastname(e.target.value);
                                             }}
                                             value={lastname}
+                                            placeholder='ex. Doe'
                                             required
                                         />
                                     </div>
@@ -145,6 +146,7 @@ export default function SignUp() {
                                         setEmail(e.target.value);
                                     }}
                                     value={email}
+                                    placeholder='ex. johndoe@example.com'
                                     required
                                 />
                                 <label className="inline-flex items-center mb-5">
