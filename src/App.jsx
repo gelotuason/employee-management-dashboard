@@ -9,7 +9,7 @@ import NotSignedIn from './components/NotSignedIn';
 import NotFound from './components/NotFound';
 import Swal from 'sweetalert2';
 import firebaseApp from './components/FirebaseConfig';
-import { getFirestore, collection, onSnapshot, doc, addDoc, deleteDoc, updateDoc } from "firebase/firestore";
+import { getFirestore, collection, onSnapshot, doc, addDoc, deleteDoc, updateDoc, initializeFirestore } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 
@@ -41,7 +41,9 @@ function App() {
   const [userProperties, setUserProperties] = useState({});
 
   useEffect(() => {
-    const db = getFirestore(firebaseApp);
+    const db = initializeFirestore(firebaseApp, {
+      experimentalForceLongPolling: true,
+    });
 
     try {
       onSnapshot(collection(db, 'employees'), snapshot => {
@@ -78,7 +80,9 @@ function App() {
 
   const addEmployee = () => {
 
-    const db = getFirestore(firebaseApp);
+    const db = initializeFirestore(firebaseApp, {
+      experimentalForceLongPolling: true,
+    });
 
     setEmployeeList(
       employeeList => [
@@ -105,7 +109,9 @@ function App() {
   };
 
   const deleteEmployee = (employeeID, firstname, lastname) => {
-    const db = getFirestore(firebaseApp);
+    const db = initializeFirestore(firebaseApp, {
+      experimentalForceLongPolling: true,
+    });
 
     const confirmed = window.confirm(`Are you sure you want to delete ${firstname} ${lastname}?`)
 
@@ -113,7 +119,9 @@ function App() {
   }
 
   const updateEmployee = () => {
-    const db = getFirestore(firebaseApp);
+    const db = initializeFirestore(firebaseApp, {
+      experimentalForceLongPolling: true,
+    });
 
     const employeeRef = doc(db, 'employees', employee.employeeID);
 
