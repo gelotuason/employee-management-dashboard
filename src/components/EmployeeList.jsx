@@ -32,7 +32,7 @@ export default function EmployeeList() {
                                                 <tr>
                                                     <th className="p-3 font-semibold text-left">First Name</th>
                                                     <th className="p-3 font-semibold text-left">Last Name</th>
-                                                    <th className="p-3 font-semibold text-left">Hired Date</th>
+                                                    <th className="p-3 font-semibold text-left">Date Hired</th>
                                                     <th className="p-3 font-semibold text-left"></th>
                                                 </tr>
                                             </thead>
@@ -94,7 +94,7 @@ export default function EmployeeList() {
                                                 <tr>
                                                     <th className="p-3 text-md font-semibold text-left">First Name</th>
                                                     <th className="p-3 text-md font-semibold text-left">Last Name</th>
-                                                    <th className="p-3 text-md font-semibold text-left">Hired Date</th>
+                                                    <th className="p-3 text-md font-semibold text-left">Date Hired</th>
                                                     <th className="p-3 text-md font-semibold text-left"></th>
                                                 </tr>
                                             </thead>
@@ -134,7 +134,7 @@ export default function EmployeeList() {
                                                     <div className="flex flex-col w-48">
                                                         <p>First Name: <span className="font-medium">{employeeRecord.firstname}</span></p>
                                                         <p>Last Name: <span className="font-medium">{employeeRecord.lastname}</span></p>
-                                                        <p>Hired Date: <span className="font-medium">{employeeRecord.date}</span></p>
+                                                        <p>Date Hired: <span className="font-medium">{employeeRecord.date}</span></p>
                                                     </div>
 
                                                     <div className="flex flex-row shrink-0 my-auto mx-auto">
@@ -213,7 +213,7 @@ export default function EmployeeList() {
                                                     <div className="flex flex-col w-48">
                                                         <p>First Name: <span className="font-medium">{employeeRecord.firstname}</span></p>
                                                         <p>Last Name: <span className="font-medium">{employeeRecord.lastname}</span></p>
-                                                        <p>Hired Date: <span className="font-medium">{employeeRecord.date}</span></p>
+                                                        <p>Date Hired: <span className="font-medium">{employeeRecord.date}</span></p>
                                                     </div>
 
                                                     <div className="flex flex-row shrink-0 my-auto mx-auto">
