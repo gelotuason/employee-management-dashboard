@@ -206,7 +206,7 @@ export default function EmployeeList() {
                             (
                                 <>
                                     {/* Employee List Table (Employee Details Toggled Off) */}
-                                    <div className="rounded-md w-full mt-1 text-xs h-[720px] overflow-auto overscroll-auto">
+                                    <div className="rounded-md w-full mt-1 text-xs max-h-[720px] overflow-auto overscroll-auto">
                                         {
                                             employeeList.map((employeeRecord) => (
                                                 <div className="flex flex-row border-2 rounded-lg p-3 overflow-auto mt-2">
