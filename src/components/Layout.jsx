@@ -1,5 +1,5 @@
 import { Outlet, Link, useNavigate } from 'react-router-dom'
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { AppState } from '../App';
 import firebaseApp from '../components/FirebaseConfig';
 import { getAuth, signOut } from "firebase/auth";
