@@ -9,6 +9,7 @@ import NotSignedIn from './components/NotSignedIn';
 import Swal from 'sweetalert2';
 import firebaseApp from './components/FirebaseConfig';
 import { getFirestore, collection, onSnapshot, doc, addDoc, deleteDoc, updateDoc } from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 
 export const AppState = createContext();
@@ -55,6 +56,20 @@ function App() {
     } catch (e) {
       alert('Error fetching data!')
     }
+
+    const auth = getAuth(firebaseApp);
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const uid = user.uid;
+
+        setAuthenticated(true);
+
+      } else {
+        setAuthenticated(false);
+      }
+    });
   }, [])
 
   const addEmployee = () => {

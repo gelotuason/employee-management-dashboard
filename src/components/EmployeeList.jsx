@@ -16,7 +16,7 @@ export default function EmployeeList() {
 
     if (authenticated) {
         return (
-            <main className="w-[285px] md:w-[670px] lg:w-full">
+            <main className="w-full">
                 <h1 className="text-xl md:text-3xl font-bold">List of Employee</h1>
                 <p className="text-sm md:text-base font-light">Current employed employees</p>
 
@@ -26,7 +26,7 @@ export default function EmployeeList() {
                             (
                                 <>
                                     {/* Employee List Table (Employee Details Toggled ON) */}
-                                    <div className="rounded-md max-h-60 overflow-auto shadow mt-3">
+                                    <div className="rounded-md overflow-auto h-[250px] shadow mt-3">
                                         <table className="w-full">
                                             <thead className=" bg-slate-200 border-b-2 border-slate-300">
                                                 <tr>
@@ -58,8 +58,8 @@ export default function EmployeeList() {
 
                                     {/* Employee Details */}
 
-                                    <section className="grid grid-cols-2">
-                                        <div className="cols-span-1">
+                                    <section className="grid grid-cols-2 mt-2">
+                                        <div className="cols-span-1 grid">
                                             <h1 className="text-xl font-semibold mt-3">Employee Details</h1>
                                             <EmployeeCard />
                                         </div>
@@ -88,7 +88,7 @@ export default function EmployeeList() {
                             (
                                 <>
                                     {/* Employee List Table (Employee Details Toggled Off) */}
-                                    <div className="rounded-md shadow max-h-[450px] overflow-auto mt-3">
+                                    <div className="rounded-md shadow overflow-auto md:max-h-[820px] lg:max-h-[690px] mt-3">
                                         <table className="w-full">
                                             <thead className=" bg-slate-200 border-b-2 border-slate-300">
                                                 <tr>
@@ -127,7 +127,7 @@ export default function EmployeeList() {
                             (
                                 <div className="text-xs">
                                     {/* Employee List Table (Employee Details Toggled ON) */}
-                                    <div className="rounded-md w-full max-h-60 mt-1 overflow-auto">
+                                    <div className="rounded-md w-full mt-1 max-h-[250px] overflow-auto">
                                         {
                                             employeeList.map((employeeRecord) => (
                                                 <div className="flex flex-row border rounded-lg p-3 overflow-auto mt-2">
@@ -206,7 +206,7 @@ export default function EmployeeList() {
                             (
                                 <>
                                     {/* Employee List Table (Employee Details Toggled Off) */}
-                                    <div className="rounded-md w-full h-[750px] overflow-auto mt-1 text-xs">
+                                    <div className="rounded-md w-full mt-1 text-xs h-[720px] overflow-auto overscroll-auto">
                                         {
                                             employeeList.map((employeeRecord) => (
                                                 <div className="flex flex-row border-2 rounded-lg p-3 overflow-auto mt-2">

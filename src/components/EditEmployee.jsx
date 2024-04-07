@@ -12,7 +12,7 @@ export default function EditEmployee() {
             e.preventDefault();
             updateEmployee();
         }}
-            className="container rounded-md p-3"
+            className="container rounded-md p-1"
         >
             <div className="grid grid-cols-2 gap-2 mb-2">
                 <div className="cols-span-1">
