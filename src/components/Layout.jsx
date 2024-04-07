@@ -13,23 +13,7 @@ export default function Layout() {
 
     const context = useContext(AppState);
 
-    const { authenticated } = context;
-
-    // useEffect(() => {
-    //     const auth = getAuth(firebaseApp);
-    //     onAuthStateChanged(auth, (user) => {
-    //         if (user) {
-    //             // User is signed in, see docs for a list of available properties
-    //             // https://firebase.google.com/docs/reference/js/auth.user
-    //             const uid = user.uid;
-
-    //             setAuthenticated(true);
-
-    //         } else {
-    //             setAuthenticated(false);
-    //         }
-    //     });
-    // }, []);
+    const { authenticated, userProperties } = context;
 
     const handleSignOut = () => {
         const auth = getAuth(firebaseApp);
@@ -46,15 +30,18 @@ export default function Layout() {
     return (
         <div className='h-lvh'>
             <main className='flex'>
-                    <aside className="min-w-16 md:w-16 lg:w-64 transition-all duration-200 bg-gray-900 rounded-ee-3xl text-white p-3 h-full">
-                        {
-                            authenticated ?
-                                <>
-                                    <div className="hidden lg:block">
-                                        <div className="flex items-center mb-3 gap-2">
-                                            <img className="h-12 w-12" src="https://img.icons8.com/color/48/men-age-group-5.png" alt="Logo" />
-                                            <h1 className="font-bold text-2xl">Employee Management Dashboard</h1>
-                                        </div>
+                <aside className="min-w-16 md:w-16 lg:w-64 transition-all duration-200 bg-gray-900 rounded-ee-3xl text-white p-3 h-full">
+                    {
+                        authenticated ?
+                            <>
+                                <div className="hidden lg:block">
+                                    <div className="flex items-center mb-3 gap-2">
+                                        <img className="h-12 w-12" src="https://img.icons8.com/color/48/men-age-group-5.png" alt="Logo" />
+                                        <h1 className="font-bold text-2xl">Employee Management Dashboard</h1>
+                                    </div>
+
+                                    <div className=' mb-20'>
+                                        <small className='font-semibold'>MENU</small>
                                         {/* Employee List */}
                                         <Link className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" to='/'>
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -73,8 +60,25 @@ export default function Layout() {
                                             <span className=''>Add Employee</span>
                                         </Link>
                                         {/* End of Add Employee */}
+                                    </div>
 
-                                        <hr className='mt-2 mb-2' />
+                                    {/* You */}
+                                    <small className='font-semibold'>YOU</small>
+                                    <Link className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium">
+                                        <img src="https://cdn2.iconfinder.com/data/icons/ui-camera-set-from-iconspace-2/21/iconspace_Portrait_Mode_25px-512.png" alt="Employee Picture" className="rounded-full bg-white w-8 h-8" />
+                                        <span className='my-auto'>{userProperties.displayName}</span>
+                                    </Link>
+                                    {/* End of You */}
+
+                                    <hr className='mt-2 mb-2' />
+
+                                    <div>
+                                        <Link className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                                <path fillRule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 0 0 0 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 0 0 0-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 0 0-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 0 0-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" clipRule="evenodd" />
+                                            </svg>
+                                            Settings
+                                        </Link>
 
                                         {/* Sign Out */}
                                         <Link onClick={() => {
@@ -87,13 +91,14 @@ export default function Layout() {
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                                                 <path fillRule="evenodd" d="M9.53 2.47a.75.75 0 0 1 0 1.06L4.81 8.25H15a6.75 6.75 0 0 1 0 13.5h-3a.75.75 0 0 1 0-1.5h3a5.25 5.25 0 1 0 0-10.5H4.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0Z" clipRule="evenodd" />
                                             </svg>
-
                                             <span className=''>Sign out</span>
                                         </Link>
                                         {/* End of Sign Out */}
                                     </div>
+                                </div>
 
-                                    <div className="lg:hidden">
+                                <div className="lg:hidden">
+                                    <div className="mb-20">
                                         {/* Employee List */}
                                         <Link title='Employee List' className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" to='/'>
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -110,11 +115,34 @@ export default function Layout() {
                                             </svg>
                                         </Link>
                                         {/* End of Add Employee */}
+                                    </div>
 
-                                        <hr className='mt-2 mb-2' />
+                                    {/* You */}
+                                    <Link title='You' className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium">
+                                        <img src="https://cdn2.iconfinder.com/data/icons/ui-camera-set-from-iconspace-2/21/iconspace_Portrait_Mode_25px-512.png" alt="Employee Picture" className="rounded-full bg-white w-6 h-6" />
+                                    </Link>
+                                    {/* End of You */}
+
+                                    <hr className='mt-2 mb-2' />
+
+                                    <div>
+                                        {/* Settings */}
+                                        <Link title='Settings' className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                                <path fillRule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 0 0 0 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 0 0 0-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 0 0-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 0 0-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" clipRule="evenodd" />
+                                            </svg>
+                                        </Link>
+                                        {/* End of Settings */}
 
                                         {/* Sign Out */}
-                                        <Link title='Sign Out' className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" >
+                                        <Link onClick={() => {
+                                            setTimeout(() => {
+                                                handleSignOut();
+                                            }, 1000);
+                                        }}
+                                            title='Sign Out'
+                                            className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium"
+                                        >
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                                                 <path fillRule="evenodd" d="M9.53 2.47a.75.75 0 0 1 0 1.06L4.81 8.25H15a6.75 6.75 0 0 1 0 13.5h-3a.75.75 0 0 1 0-1.5h3a5.25 5.25 0 1 0 0-10.5H4.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0Z" clipRule="evenodd" />
                                             </svg>
@@ -122,90 +150,92 @@ export default function Layout() {
                                         </Link>
                                         {/* End of Sign Out */}
                                     </div>
-                                </>
+                                </div>
+                            </>
 
-                                :
+                            :
 
-                                <>
-                                    <div className="hidden lg:block">
-                                        <div className="flex items-center mb-3 gap-2">
-                                            <img className="h-12 w-12" src="https://img.icons8.com/color/48/men-age-group-5.png" alt="Logo" />
-                                            <h1 className="font-bold text-2xl">Employee Management Dashboard</h1>
-                                        </div>
-                                        {/* Sign In */}
-                                        <Link className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" to='signIn'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                                                <path fillRule="evenodd" d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
-                                            </svg>
-                                            <span className=''>Sign in</span>
-                                        </Link>
-                                        {/* End of Sign In */}
-
-                                        {/* Sign Up */}
-                                        <Link className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" to='signUp'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                                                <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
-                                                <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
-                                            </svg>
-                                            <span className=''>Sign up</span>
-                                        </Link>
-                                        {/* End of Sign Up */}
+                            <>
+                                <div className="hidden lg:block">
+                                    <div className="flex items-center mb-3 gap-2">
+                                        <img className="h-12 w-12" src="https://img.icons8.com/color/48/men-age-group-5.png" alt="Logo" />
+                                        <h1 className="font-bold text-2xl">Employee Management Dashboard</h1>
                                     </div>
 
-                                    <div className="lg:hidden">
-                                        {/* Sign In */}
-                                        <Link title='Sign In' className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" to='SignIn'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                                                <path fillRule="evenodd" d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
-                                            </svg>
-                                        </Link>
-                                        {/* End of Sign In */}
+                                    <span className='font-medium'>Menu</span>
+                                    {/* Sign In */}
+                                    <Link className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" to='signIn'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                            <path fillRule="evenodd" d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+                                        </svg>
+                                        <span className=''>Sign in</span>
+                                    </Link>
+                                    {/* End of Sign In */}
 
-                                        {/* Sign Up */}
-                                        <Link title='Sign Up' className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" to='signUp'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                                                <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
-                                                <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
-                                            </svg>
-                                        </Link>
-                                        {/* End of Sign Up */}
-                                    </div>
-                                </>
-                        }
-                    </aside>
+                                    {/* Sign Up */}
+                                    <Link className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" to='signUp'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                            <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
+                                            <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
+                                        </svg>
+                                        <span className=''>Sign up</span>
+                                    </Link>
+                                    {/* End of Sign Up */}
+                                </div>
 
-                    <section className='flex-1 p-4 w-full'>
-                        <Outlet></Outlet>
-                    </section>
-                </main>
+                                <div className="lg:hidden">
+                                    {/* Sign In */}
+                                    <Link title='Sign In' className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" to='SignIn'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                            <path fillRule="evenodd" d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+                                        </svg>
+                                    </Link>
+                                    {/* End of Sign In */}
 
-                <footer className='bg-gray-800 text-white grid place-items-center sticky top-full text-center w-full p-4'>
-                    <small>Copyright © 2024 Employee Management Dashboard. All rights reserved.</small>
-                    <small>Developed by <strong>Ferangelo Tuason</strong></small>
+                                    {/* Sign Up */}
+                                    <Link title='Sign Up' className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" to='signUp'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                            <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
+                                            <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
+                                        </svg>
+                                    </Link>
+                                    {/* End of Sign Up */}
+                                </div>
+                            </>
+                    }
+                </aside>
 
-                    <div className="flex gap-3 mt-1">
-                        <a className='hover:text-gray-300' href="https://www.facebook.com/gelo.tuason26/" target="_blank">
-                            <FontAwesomeIcon icon={faFacebookF} />
-                        </a>
+                <section className='flex-1 p-4 w-full'>
+                    <Outlet></Outlet>
+                </section>
+            </main>
 
-                        <a className='hover:text-gray-300' href="https://www.linkedin.com/in/ferangelo-tuason/" target="_blank">
-                            <FontAwesomeIcon icon={faLinkedinIn} />
-                        </a>
+            <footer className='bg-gray-800 text-white grid place-items-center sticky top-full text-center w-full p-4'>
+                <small>Copyright © 2024 Employee Management Dashboard. All rights reserved.</small>
+                <small>Developed by <strong>Ferangelo Tuason</strong></small>
 
-                        <a className='hover:text-gray-300' href="https://www.instagram.com/gelotuason/?hl=en" target="_blank">
-                            <FontAwesomeIcon icon={faInstagram} />
-                        </a>
+                <div className="flex gap-3 mt-1">
+                    <a className='hover:text-gray-300' href="https://www.facebook.com/gelo.tuason26/" target="_blank">
+                        <FontAwesomeIcon icon={faFacebookF} />
+                    </a>
 
-                        <a className='hover:text-gray-300' href="https://www.tiktok.com/@gelotuason" target="_blank">
-                            <FontAwesomeIcon icon={faTiktok} />
-                        </a>
+                    <a className='hover:text-gray-300' href="https://www.linkedin.com/in/ferangelo-tuason/" target="_blank">
+                        <FontAwesomeIcon icon={faLinkedinIn} />
+                    </a>
 
-                        <a className='hover:text-gray-300' href="mailto:gelotuason@gmail.com" target="_blank">
-                            <FontAwesomeIcon icon={faEnvelope} />
-                        </a>
-                    </div>
-                </footer>
+                    <a className='hover:text-gray-300' href="https://www.instagram.com/gelotuason/?hl=en" target="_blank">
+                        <FontAwesomeIcon icon={faInstagram} />
+                    </a>
 
+                    <a className='hover:text-gray-300' href="https://www.tiktok.com/@gelotuason" target="_blank">
+                        <FontAwesomeIcon icon={faTiktok} />
+                    </a>
+
+                    <a className='hover:text-gray-300' href="mailto:gelotuason@gmail.com" target="_blank">
+                        <FontAwesomeIcon icon={faEnvelope} />
+                    </a>
+                </div>
+            </footer>
         </div>
     )
 }

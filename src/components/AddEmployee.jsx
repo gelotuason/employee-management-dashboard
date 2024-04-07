@@ -155,7 +155,6 @@ export default function AddEmployee() {
                     </div>
                 </form>
             </div>
-
         </main>
     )
 }

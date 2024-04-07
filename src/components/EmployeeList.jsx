@@ -26,7 +26,7 @@ export default function EmployeeList() {
                             (
                                 <>
                                     {/* Employee List Table (Employee Details Toggled ON) */}
-                                    <div className="rounded-md overflow-auto h-[250px] shadow mt-3">
+                                    <div className="rounded-md overflow-auto h-full max-h-[250px] shadow mt-3">
                                         <table className="w-full">
                                             <thead className=" bg-slate-200 border-b-2 border-slate-300">
                                                 <tr>
@@ -263,5 +263,4 @@ export default function EmployeeList() {
             <NotSignedIn />
         )
     }
-
 }

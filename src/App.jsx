@@ -37,6 +37,7 @@ function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [userProperties, setUserProperties] = useState({});
 
   useEffect(() => {
     const db = getFirestore(firebaseApp);
@@ -63,6 +64,8 @@ function App() {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
         const uid = user.uid;
+
+        setUserProperties(user);
 
         setAuthenticated(true);
 
@@ -174,7 +177,9 @@ function App() {
       confirmPassword,
       setConfirmPassword,
       authenticated,
-      setAuthenticated
+      setAuthenticated,
+      userProperties,
+      setUserProperties
     }}>
       <BrowserRouter>
         <Routes>

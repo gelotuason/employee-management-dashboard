@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AppState } from '../App';
 import firebaseApp from '../components/FirebaseConfig';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 export default function SignUp() {
 
@@ -18,6 +18,10 @@ export default function SignUp() {
             .then((userCredential) => {
                 // Signed up 
                 const user = userCredential.user;
+
+                updateProfile(auth.currentUser, {
+                    displayName: firstname + " " + lastname
+                });
 
                 setFirstname('');
                 setLastname('');
@@ -103,7 +107,7 @@ export default function SignUp() {
                                         />
                                     </div>
                                 </div>
-                                
+
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
                                     <div className="cols-span-1">
                                         <label htmlFor="password" className="text-white text-sm font-medium">*Password</label>
@@ -147,6 +151,7 @@ export default function SignUp() {
                                     <input
                                         type="checkbox"
                                         className="rounded hover:border-2 border-white focus:ring-0 bg-transparent"
+                                        required
                                     />
                                     <span className="ml-2 text-white text-xs">I agree to the terms & conditions and privacy policy</span>
                                 </label>
@@ -167,8 +172,5 @@ export default function SignUp() {
                 </div>
             </section>
         </main>
-
-
     )
-
 }
