@@ -6,6 +6,7 @@ import AddEmployee from './components/AddEmployee'
 import SignIn from './auth/SignIn';
 import SignUp from './auth/Signup';
 import NotSignedIn from './components/NotSignedIn';
+import NotFound from './components/NotFound';
 import Swal from 'sweetalert2';
 import firebaseApp from './components/FirebaseConfig';
 import { getFirestore, collection, onSnapshot, doc, addDoc, deleteDoc, updateDoc } from "firebase/firestore";
@@ -190,6 +191,7 @@ function App() {
           <Route path='signIn' element={<SignIn />} />
           <Route path='signUp' element={<SignUp />} />
           <Route path='notSignedIn' element={<NotSignedIn />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </AppState.Provider>
