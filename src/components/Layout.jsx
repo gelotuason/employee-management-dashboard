@@ -68,7 +68,7 @@ export default function Layout() {
                                     <small className='font-semibold'>YOU</small>
                                     <Link className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium">
                                         <img src="https://cdn2.iconfinder.com/data/icons/ui-camera-set-from-iconspace-2/21/iconspace_Portrait_Mode_25px-512.png" alt="Employee Picture" className="rounded-full my-auto bg-white w-8 h-8" />
-                                        <span className='my-auto'>{userProperties.displayName}</span>
+                                        <span className='my-auto text-sm'>{userProperties.displayName}</span>
                                     </Link>
                                     {/* End of You */}
 
