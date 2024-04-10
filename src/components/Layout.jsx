@@ -29,18 +29,20 @@ export default function Layout() {
 
     return (
         <div className='h-lvh'>
+            <header className='bg-gray-800 text-white w-full p-5'>
+                <div className="flex gap-2">
+                    <img className="h-8 w-8 z-10" src="https://img.icons8.com/color/48/men-age-group-5.png" alt="Logo" />
+                    <h1 className='font-bold text-xl'>Employee Management Dashboard</h1>
+                </div>
+
+            </header>
             <main className='flex'>
-                <aside className="min-w-16 md:w-16 lg:w-64 transition-all duration-200 bg-gray-900 rounded-ee-3xl text-white p-3 h-full">
+                <aside className="min-w-16 md:w-16 lg:w-48 transition-all duration-200 rounded-ee-xl bg-gray-900 text-white border-r-2 p-3 h-full">
                     {
                         authenticated ?
                             <>
                                 <div className="hidden lg:block">
-                                    <div className="flex items-center mb-3 gap-2">
-                                        <img className="h-12 w-12" src="https://img.icons8.com/color/48/men-age-group-5.png" alt="Logo" />
-                                        <h1 className="font-bold text-2xl">Employee Management Dashboard</h1>
-                                    </div>
-
-                                    <div className=' mb-20'>
+                                    <div className='mb-20'>
                                         <small className='font-semibold'>MENU</small>
                                         {/* Employee List */}
                                         <Link className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium" to='/'>
@@ -65,7 +67,7 @@ export default function Layout() {
                                     {/* You */}
                                     <small className='font-semibold'>YOU</small>
                                     <Link className="flex rounded gap-5 p-2 hover:bg-gray-600 font-medium">
-                                        <img src="https://cdn2.iconfinder.com/data/icons/ui-camera-set-from-iconspace-2/21/iconspace_Portrait_Mode_25px-512.png" alt="Employee Picture" className="rounded-full bg-white w-8 h-8" />
+                                        <img src="https://cdn2.iconfinder.com/data/icons/ui-camera-set-from-iconspace-2/21/iconspace_Portrait_Mode_25px-512.png" alt="Employee Picture" className="rounded-full my-auto bg-white w-8 h-8" />
                                         <span className='my-auto'>{userProperties.displayName}</span>
                                     </Link>
                                     {/* End of You */}
@@ -157,10 +159,6 @@ export default function Layout() {
 
                             <>
                                 <div className="hidden lg:block">
-                                    <div className="flex items-center mb-3 gap-2">
-                                        <img className="h-12 w-12" src="https://img.icons8.com/color/48/men-age-group-5.png" alt="Logo" />
-                                        <h1 className="font-bold text-2xl">Employee Management Dashboard</h1>
-                                    </div>
 
                                     <span className='font-medium'>Menu</span>
                                     {/* Sign In */}
