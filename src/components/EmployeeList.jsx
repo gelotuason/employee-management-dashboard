@@ -50,6 +50,7 @@ export default function EmployeeList() {
                                                         />
                                                     ))
                                                 }
+
                                             </tbody>
                                         </table>
                                     </div>
