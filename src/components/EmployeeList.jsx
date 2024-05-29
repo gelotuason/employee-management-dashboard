@@ -8,7 +8,7 @@ import { AppState } from '../App'
 export default function EmployeeList() {
     const context = useContext(AppState);
 
-    const { authenticated, setEmployee, employeeList, empDetailsToggle, setEmpDetailsToggle, setUpdateFormToggle, setUpdateForm, updateFormToggle, deleteEmployee } = context
+    const { authenticated, userProperties, setEmployee, employeeList, empDetailsToggle, setEmpDetailsToggle, setUpdateFormToggle, setUpdateForm, updateFormToggle, deleteEmployee } = context
 
     useEffect(() => {
         setEmpDetailsToggle(false);
@@ -17,8 +17,8 @@ export default function EmployeeList() {
     if (authenticated) {
         return (
             <main className="w-full">
-                <h1 className="text-xl md:text-3xl font-bold">List of Employee</h1>
-                <p className="text-sm md:text-base font-light">Current employed employees</p>
+                <h1 className="text-xl md:text-3xl font-bold">Hello {userProperties.displayName}!</h1>
+                <p className="text-sm md:text-base font-light">These are the list of employees</p>
 
                 <div className="hidden md:block">
                     {
