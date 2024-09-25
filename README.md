@@ -1,8 +1,22 @@
-# React + Vite
+## Brief summary
+This is a web-based admin panel designed for managing and monitoring employees.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Built with
+- React
+- Tailwind CSS
+- Firebase
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key features
+- CRUD functionality:
+  - Create: add new employee with an appropriate details
+  - Read: view all employees registered in the database
+  - Update: modify existing employee information 
+  - Delete: remove existing employee record
+- Database: utilized Cloud Firestore for saving employees records
+- User interface: simple and user-friendly design
+- Authentication: utilized Firebase Authentication
+  - secure login and register
+  - automatic session management
+ 
+## Todos
+- Implement data visualization
